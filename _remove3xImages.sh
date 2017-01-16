@@ -1,7 +1,11 @@
+# Readme
+# 您需要先安装jq（shell json处理）
+# brew install jq
+# 用法：sh _remove3xImages.sh asset目录绝对路径
+
 #!/bin/sh
 
 set -e
-
 
 function parasValidate {
     if [ "${1}" = "" ]; then
