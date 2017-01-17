@@ -39,10 +39,15 @@ function removePNG {
 function modifyContentJson {
     iteor="${1}"
 
-json=$(cat "${1}" | jq .="{\"images\":[{\"idiom\":\"universal\",\"filename\":\"${2}@2x.png\",\"scale\":\"2x\"}],\"info\":{\"version\":1,\"author\":\"xcode\"}}")
-#
-#json=$(jq .="{\"images\":[{\"idiom\":\"universal\",\"filename\":\"${2}@2x.png\",\"scale\":\"2x\"}],\"info\":{\"version\":1,\"author\":\"xcode\"}}" "${iteor}")
-echo "${json}" > "${iteor}"
+    idiom=`jq .images[0].idiom "${iteor}"`
+    if [ "${idiom}" = "" ]; then
+        idiom="universal"
+    fi
+
+    json=$(cat "${1}" | jq .="{\"images\":[{\"idiom\":\"universal\",\"filename\":\"${2}@2x.png\",\"scale\":\"2x\"}],\"info\":{\"version\":1,\"author\":\"xcode\"}}")
+    #
+    #json=$(jq .="{\"images\":[{\"idiom\":\"universal\",\"filename\":\"${2}@2x.png\",\"scale\":\"2x\"}],\"info\":{\"version\":1,\"author\":\"xcode\"}}" "${iteor}")
+    echo "${json}" > "${iteor}"
 }
 
 function removeImagesAtDir {
