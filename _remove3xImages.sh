@@ -37,17 +37,11 @@ function removePNG {
 }
 
 function modifyContentJson {
-    iteor="${1}"
+    filename="${2}@2x.png"
 
-    idiom=`jq .images[0].idiom "${iteor}"`
-    if [ "${idiom}" = "" ]; then
-        idiom="universal"
-    fi
+    ajson=`jq 'del(.images[] | select(.scale == "3x"))' "${1}"`
 
-    json=$(cat "${1}" | jq .="{\"images\":[{\"idiom\":\"universal\",\"filename\":\"${2}@2x.png\",\"scale\":\"2x\"}],\"info\":{\"version\":1,\"author\":\"xcode\"}}")
-    #
-    #json=$(jq .="{\"images\":[{\"idiom\":\"universal\",\"filename\":\"${2}@2x.png\",\"scale\":\"2x\"}],\"info\":{\"version\":1,\"author\":\"xcode\"}}" "${iteor}")
-    echo "${json}" > "${iteor}"
+    echo "${ajson}" > "${1}"
 }
 
 function removeImagesAtDir {
