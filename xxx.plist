@@ -11,7 +11,7 @@
                     <key>kind</key>
                     <string>software-package</string>
                     <key>url</key>
-                    <string>itms-services://?action=download-manifest&amp;url=https://www.pgyer.com/app/plist/c0c32d7af6141ab721bf15f0135bbb8f/s.plist</string>
+                    <string>https://172.31.82.74:8081/TuNiuApp.ipa</string>
                 </dict>
 <dict>
 <key>kind</key>
