@@ -33,13 +33,13 @@
             <key>metadata</key>
             <dict>
                 <key>bundle-identifier</key>
-<string>edwin_zhou@hotmail.com</string>
+<string>com.tuniu.app</string>
                 <key>bundle-version</key>
                 <string>1.0</string>
                 <key>kind</key>
                 <string>software</string>
                 <key>title</key>
-                <string>这里用的是中文名称</string>
+                <string>途牛旅游</string>
             </dict>
         </dict>
     </array>
